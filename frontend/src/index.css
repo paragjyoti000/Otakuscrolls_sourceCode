@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Playpen+Sans:wght@100..800&display=swap");
+@import url("https://db.onlinewebfonts.com/c/2d4284cd3ff29c9044df8d2dc1c141e7?family=Tisa+Sans+Pro+Light");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-quicksand {
+    font-family: "Quicksand", sans-serif;
+}
+
+.font-tisa {
+    font-family: "Tisa Sans Pro Light", sans-serif;
+}
+
+.font-playpen {
+    font-family: "Playpen Sans", sans-serif;
+}
+
+.chapter-content,
+.chapter-content > div,
+.chapter-content > div > div {
+    @apply space-y-3;
+}
+
+@media only screen and (min-width: 1024px) {
+    .book {
+        transform-style: preserve-3d;
+        transform: perspective(300px) rotateY(-3deg);
+    }
+
+    .book:before,
+    .book:after {
+        position: absolute;
+        content: " ";
+        z-index: -1;
+    }
+
+    .book:before {
+        width: 100%;
+        left: 7.5%;
+        height: 96%;
+        top: 2%;
+        background-color: #000;
+    }
+
+    .book:after {
+        width: 8%;
+        left: 100%;
+        height: 94%;
+        top: 3%;
+        background-color: #efefef;
+        box-shadow: inset 0 0 5px #767676;
+        -moz-transform: rotateY(20deg);
+        -webkit-transform: perspective(300) rotateY(20deg);
+        transform: perspective(300px) rotateY(20deg);
+    }
+}
+
+.book-shine::before {
+    @apply absolute group-hover:book-hover h-full w-10 -left-32 -top-1 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.7)] to-transparent;
+    content: "";
+    transform: skewX(-30deg);
+    z-index: 10;
+}
+
+.book-shine::before:hover,
+.group:hover .group-hover\:book-hover {
+    animation: coverShine 0.5s linear;
+}
+
+@keyframes coverShine {
+    to {
+        left: 110%;
+    }
+}
+
+.svgContainer {
+    --uib-size: 40px;
+    --uib-color: black;
+    --uib-speed: 1.4s;
+    --uib-bg-opacity: 0.1;
+    height: var(--uib-size);
+    width: var(--uib-size);
+    transform-origin: center;
+    overflow: visible;
+}
+
+.car {
+    fill: none;
+    stroke: var(--uib-color);
+    stroke-dasharray: 15, 85;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: travel var(--uib-speed) linear infinite;
+    will-change: stroke-dasharray, stroke-dashoffset;
+    transition: stroke 0.5s ease;
+}
+
+.track {
+    stroke: var(--uib-color);
+    opacity: var(--uib-bg-opacity);
+    transition: stroke 0.5s ease;
+}
+
+@keyframes travel {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -100;
+    }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.p-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-no, 2); /* number of lines to show */
+    line-clamp: var(--line-no, 2);
+    -webkit-box-orient: vertical;
+}
+
+.stars svg {
+    stroke: #5688c7;
+    stroke-width: 10;
+}
+
+:is(.dark .dark\:stars) svg {
+    stroke: #ffffff;
+    stroke-width: 10;
+}
+
+.scrollbar-css {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color, #5688c7) transparent;
+}
+
+/* var("--scrollbar-color", #5688c7) */
+
+/* Works on Chrome, Edge, and Safari */
+.scrollbar-css::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.scrollbar-css::-webkit-scrollbar-thumb {
+    background-color: #e81f1f;
+    border-radius: 4px;
+}
+.scrollbar-css::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+.button-btn {
+    fill: #f0f0f0;
+    stroke: #333333;
+    stroke-width: 2;
+    cursor: pointer;
+}
+.arrow-arr {
+    fill: #333333;
+    transform-origin: 50% 50%;
+    transition: transform 0.3s;
+}
+.button-btn:hover .arrow {
+    transform: scale(1.2);
+}
+
+/* 
+App Loading CSS
+*/
+
+.loading-container {
+    --uib-size: 45px;
+    --uib-color: black;
+    --uib-speed: 1.75s;
+    position: relative;
+    height: var(--uib-size);
+    width: var(--uib-size);
+    animation: rotate calc(var(--uib-speed) * 4) linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.particle {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    &:nth-child(1) {
+        --uib-delay: 0;
+        transform: rotate(8deg);
+    }
+    &:nth-child(2) {
+        --uib-delay: -0.4;
+        transform: rotate(36deg);
+    }
+
+    &:nth-child(3) {
+        --uib-delay: -0.9;
+        transform: rotate(72deg);
+    }
+    &:nth-child(4) {
+        --uib-delay: -0.5;
+        transform: rotate(90deg);
+    }
+    &:nth-child(5) {
+        --uib-delay: -0.3;
+        transform: rotate(144deg);
+    }
+    &:nth-child(6) {
+        --uib-delay: -0.2;
+        transform: rotate(180deg);
+    }
+    &:nth-child(7) {
+        --uib-delay: -0.6;
+        transform: rotate(216deg);
+    }
+    &:nth-child(8) {
+        --uib-delay: -0.7;
+        transform: rotate(252deg);
+    }
+    &:nth-child(9) {
+        --uib-delay: -0.1;
+        transform: rotate(300deg);
+    }
+    &:nth-child(10) {
+        --uib-delay: -0.8;
+        transform: rotate(324deg);
+    }
+    &:nth-child(11) {
+        --uib-delay: -1.2;
+        transform: rotate(335deg);
+    }
+    &:nth-child(12) {
+        --uib-delay: -0.5;
+        transform: rotate(290deg);
+    }
+    &:nth-child(13) {
+        --uib-delay: -0.2;
+        transform: rotate(240deg);
+    }
+}
+
+.particle::before {
+    @apply bg-emerald-700 dark:bg-emerald-400;
+    /* background-color: var(--uib-color); */
+    content: "";
+    position: absolute;
+    height: 17.5%;
+    width: 17.5%;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+    --uib-d: calc(var(--uib-delay) * var(--uib-speed));
+    animation: orbit var(--uib-speed) linear var(--uib-d) infinite;
+}
+
+@keyframes orbit {
+    0% {
+        transform: translate(calc(var(--uib-size) * 0.5)) scale(0.73684);
+        opacity: 0.65;
+    }
+    5% {
+        transform: translate(calc(var(--uib-size) * 0.4)) scale(0.684208);
+        opacity: 0.58;
+    }
+    10% {
+        transform: translate(calc(var(--uib-size) * 0.3)) scale(0.631576);
+        opacity: 0.51;
+    }
+    15% {
+        transform: translate(calc(var(--uib-size) * 0.2)) scale(0.578944);
+        opacity: 0.44;
+    }
+    20% {
+        transform: translate(calc(var(--uib-size) * 0.1)) scale(0.526312);
+        opacity: 0.37;
+    }
+    25% {
+        transform: translate(0%) scale(0.47368);
+        opacity: 0.3;
+    }
+    30% {
+        transform: translate(calc(var(--uib-size) * -0.1)) scale(0.526312);
+        opacity: 0.37;
+    }
+    35% {
+        transform: translate(calc(var(--uib-size) * -0.2)) scale(0.578944);
+        opacity: 0.44;
+    }
+    40% {
+        transform: translate(calc(var(--uib-size) * -0.3)) scale(0.631576);
+        opacity: 0.51;
+    }
+    45% {
+        transform: translate(calc(var(--uib-size) * -0.4)) scale(0.684208);
+        opacity: 0.58;
+    }
+    50% {
+        transform: translate(calc(var(--uib-size) * -0.5)) scale(0.73684);
+        opacity: 0.65;
+    }
+    55% {
+        transform: translate(calc(var(--uib-size) * -0.4)) scale(0.789472);
+        opacity: 0.72;
+    }
+    60% {
+        transform: translate(calc(var(--uib-size) * -0.3)) scale(0.842104);
+        opacity: 0.79;
+    }
+    65% {
+        transform: translate(calc(var(--uib-size) * -0.2)) scale(0.894736);
+        opacity: 0.86;
+    }
+    70% {
+        transform: translate(calc(var(--uib-size) * -0.1)) scale(0.947368);
+        opacity: 0.93;
+    }
+    75% {
+        transform: translate(0%) scale(1);
+        opacity: 1;
+    }
+    80% {
+        transform: translate(calc(var(--uib-size) * 0.1)) scale(0.947368);
+        opacity: 0.93;
+    }
+    85% {
+        transform: translate(calc(var(--uib-size) * 0.2)) scale(0.894736);
+        opacity: 0.86;
+    }
+    90% {
+        transform: translate(calc(var(--uib-size) * 0.3)) scale(0.842104);
+        opacity: 0.79;
+    }
+    95% {
+        transform: translate(calc(var(--uib-size) * 0.4)) scale(0.789472);
+        opacity: 0.72;
+    }
+    100% {
+        transform: translate(calc(var(--uib-size) * 0.5)) scale(0.73684);
+        opacity: 0.65;
+    }
+}
