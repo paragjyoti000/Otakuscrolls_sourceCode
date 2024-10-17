@@ -31,7 +31,8 @@ I'm a passionate programmer who loves turning ideas into reality with code. My p
 #### 🚀 Current Focus:
 
 -   Improving my skills in [Next.js](https://nextjs.org/)
--   Building [insert current project/goal]
+-   Building A new project with Next.js
+-   Maintaining [OtakuScrolls](https://otakuscrolls.com)
 
 #### 📫 How to reach me:
 
