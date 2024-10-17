@@ -1,6 +1,6 @@
 # [OtakuScrolls](https://otakuscrolls.com)
 
-This is a MERN stack web app for OtakuScrolls. This website is a Light Novel reading platform. It's built with [React.js](https://reactjs.org/) and [Node.js](https://nodejs.org/) as Frontend and [Express.js](https://expressjs.com/) and [MongoDB](https://www.mongodb.com/) as Backend. It's also built with [Vite](https://vitejs.dev/) and [Tailwind CSS](https://tailwindcss.com/) for styling.
+This is a MERN stack web app for [OtakuScrolls](https://otakuscrolls.com). This website is a Light Novel reading platform. It's built with [React.js](https://reactjs.org/) and [Node.js](https://nodejs.org/) as Frontend and [Express.js](https://expressjs.com/) and [MongoDB](https://www.mongodb.com/) as Backend. It's also built with [Vite](https://vitejs.dev/) and [Tailwind CSS](https://tailwindcss.com/) for styling.
 
 ## Features
 
